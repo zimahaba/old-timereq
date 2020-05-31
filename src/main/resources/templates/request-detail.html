@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Request Detail</h1>
+<br/>
+
+<label>NUMBER</label>
+<br/>
+<label th:text="${request.number}"></label>
+<br/>
+<label>DESCRIPTION</label>
+<br/>
+<label th:text="${request.description}"></label>
+<br/>
+<label>OBSERVATION</label>
+<br/>
+<label th:text="${request.observation}"></label>
+<br/>
+<label>START DATE</label>
+<br/>
+<label th:text="${#temporals.format(request.startDate, 'dd/MM/yyyy')}"></label>
+<br/>
+<label>END DATE</label>
+<br/>
+<label th:text="${#temporals.format(request.endDate, 'dd/MM/yyyy')}"></label>
+<br/>
+<label>PROJECT</label>
+<br/>
+<label th:text="${request.project.name}"></label>
+<br/>
+<label>SITUATION</label>
+<br/>
+<label th:text="${request.situation.name}"></label>
+<br/>
+<br/>
+
+<label>PERIODS</label>
+<br/>
+<table>
+    <tr>
+        <th>PROJECT</th>
+        <th>NUMBER</th>
+        <th>START DATE</th>
+    </tr>
+    <tr th:each="period : ${request.periods}">
+        <td th:text="${#temporals.format(period.date, 'dd/MM/yyyy')}"> </td>
+        <td th:text="${#temporals.format(period.startTime, 'hh:mm')}"> </td>
+        <td th:text="${#temporals.format(period.endTime, 'hh:mm')}"> </td>
+    </tr>
+</table>
+
+</body>
+</html>

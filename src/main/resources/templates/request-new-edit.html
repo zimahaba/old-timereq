@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeReq</title>
+</head>
+
+<body>
+
+<h1>New Request</h1>
+
+<form th:action="@{/request}" th:object="${request}" th:method="${method}">
+    <input type="hidden" name="id" th:field="*{id}"/>
+    <input type="text" name="number" th:field="*{number}" th:placeholder="Number"/> <br/>
+    <br/>
+
+    <input type="text" name="description" th:field="*{description}" th:placeholder="Description"/> <br/>
+    <br/>
+
+    <input type="text" name="observation" th:field="*{observation}" th:placeholder="Observation"/> <br/>
+    <br/>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+
+</body>
+</html>
