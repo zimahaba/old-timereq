@@ -9,7 +9,7 @@
 
 <h1>New Request</h1>
 
-<form th:action="@{/request}" th:object="${request}" th:method="${method}">
+<form th:action="@{/request}" th:object="${request}" th:method="post">
     <input type="hidden" name="id" th:field="*{id}"/>
     <input type="text" name="number" th:field="*{number}" th:placeholder="Number"/> <br/>
     <br/>

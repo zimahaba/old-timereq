@@ -31,6 +31,7 @@
         <td th:text="${#temporals.format(request.endDate, 'dd/MM/yyyy')}"> </td>
         <td th:text="${request.situation.name}"> </td>
         <td><a href="#" th:href="@{'/request-edit/'+ ${request.id}}">EDIT</a></td>
+        <td><a href="#" th:href="@{'/request-delete/'+ ${request.id}}">DELETE</a></td>
         <td><button th:id="'btn-start' + ${request.id}" class="btn-start">Start</button></td>
         <td><button th:id="'btn-stop' + ${request.id}">Stop</button></td>
     </tr>
@@ -38,7 +39,7 @@
 
 <br>
 
-<a href="#" th:href="@{/request-new}">New Jedi</a>
+<a href="#" th:href="@{/request-new}">New Request</a>
 
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>

@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Timereq</title>
 </head>
 <body>
+
+<h1>Delete Request</h1>
+<br/>
+
+<form action="#" th:action="@{/request}" th:object="${request}" th:method="delete">
+    <label>Are you sure you want to delete the request nº ${request.id}</label>
+    <button type="submit">Delete</button>
+</form>
+
+<a href="#" th:href="@{/requests}">Back</a>
 
 </body>
 </html>

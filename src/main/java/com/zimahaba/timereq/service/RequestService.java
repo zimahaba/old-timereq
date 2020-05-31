@@ -33,6 +33,10 @@ public class RequestService {
         return requestRepository.findById(id).get();
     }
 
+    public void delete(Request request) {
+        requestRepository.delete(request);
+    }
+
     public Request save(Request request) {
 
         Optional<Project> project = projectService.findById(1L);
@@ -48,16 +52,6 @@ public class RequestService {
         request.setProject(project.get());
         request.setSituation(situation.get());
         request.addPeriod(period);
-
-        /*Request request = Request.builder().number("1").description("description").observation("obs")
-                .startDate(LocalDate.now()).endDate(LocalDate.now())
-                .project(project.get()).situation(situation.get()).build();*/
-        //request.addPeriod(period);
-
-        /*Request request2 = Request.builder().number("2").description("description").observation("obs")
-                .startDate(LocalDate.now()).endDate(LocalDate.now())
-                .project(project.get()).situation(situation.get()).build();
-        request.addPeriod(period);*/
 
         return requestRepository.saveAndFlush(request);
     }

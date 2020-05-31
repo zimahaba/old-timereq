@@ -53,6 +53,7 @@ public class RequestController {
     @GetMapping("/request-delete/{id}")
     public ModelAndView showRequestDelete(@PathVariable Long id) {
         final ModelAndView modelAndView = new ModelAndView(VIEW_REQUEST_DELETE);
+        modelAndView.addObject("request", requestService.findById(id));
         return modelAndView;
     }
 
@@ -63,10 +64,10 @@ public class RequestController {
         return "redirect:requests";
     }
 
-    @PutMapping("/request")
-    public String updateRequest(@ModelAttribute Request request, BindingResult result, RedirectAttributes redirect) {
-        requestService.save(request);
-        redirect.addFlashAttribute("message", "Request successfully updated.");
+    @DeleteMapping("/request")
+    public String deleteRequest(@ModelAttribute Request request, BindingResult result, RedirectAttributes redirect) {
+        requestService.delete(request);
+        redirect.addFlashAttribute("message", "Request successfully deleted.");
         return "redirect:requests";
     }
 }
